@@ -1,0 +1,9 @@
+.current-date,
+.live-time,
+.custom-title {
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    -webkit-text-stroke: 1px black;
+}

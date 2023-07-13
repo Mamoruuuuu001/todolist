@@ -1,3 +1,7 @@
+<style>
+@import 'style.css';
+</style>
+
 <template>
   <v-app id="inspire">
     <v-navigation-drawer v-model="drawer" app>
@@ -35,27 +39,32 @@
         </v-list>
     </v-navigation-drawer>
 
-  <v-app-bar
-        app
-        color="primary"
-        dark
-        src="takingnote.gif"
-        prominent
-      >
-        <template v-slot:img="{ props }">
-          <v-img
-            v-bind="props"
-            gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.2)"
-          ></v-img>
-        </template>
+   <v-app-bar
+      app
+      color="primary"
+      dark
+      src="takingnote.gif"
+      prominent
+    >
+      <template v-slot:img="{ props }">
+        <v-img
+          v-bind="props"
+          gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.2)"
+        ></v-img>
+      </template>
 
-        <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-        <v-app-bar-title class="custom-title">To Do List</v-app-bar-title>
+      <v-app-bar-title class="custom-title">To Do List</v-app-bar-title>
 
-        <v-spacer></v-spacer>
+      <v-spacer></v-spacer>
 
-      </v-app-bar>
+      <div class="date-time-container">
+        <div class="current-date">{{ getCurrentDate() }}</div>
+        <div class="live-time">{{ liveTime }}</div>
+      </div>
+    </v-app-bar>
+
 
     <v-main>
       <router-view></router-view>
@@ -63,18 +72,5 @@
   </v-app>
 </template>
 
-<script setup>
-import {ref} from 'vue'
-const drawer = ref(null)
-</script>
-
-<script>
-export default {
-  data: () => ({ drawer: null,
-  items: [
-      { title: 'To Do', icon: 'mdi-list-box-outline',to:'/' },
-      { title: 'About', icon: 'mdi-help-box',to:'/about'},
-    ]
-  }),
-}
+<script src="./App.js">
 </script>

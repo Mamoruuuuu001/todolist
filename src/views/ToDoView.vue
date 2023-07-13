@@ -41,72 +41,11 @@
     </div>
 
     <!-- Snackbar for empty task title -->
-    <!-- Snackbar for empty task title -->
-  <v-snackbar
-    v-model="snackbar.show"
-    :timeout="snackbar.timeout"
-    color="error"
-    @input="saveSnackbarState"
-  >
-    {{ snackbar.message }}
-  </v-snackbar>
+    <v-snackbar v-model="snackbar.show" :timeout="snackbar.timeout" color="error" @input="saveSnackbarState">
+      {{ snackbar.message }}
+    </v-snackbar>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'Home',
-  data() {
-    return {
-      newTaskTitle: '',
-      tasks: [],
-      snackbar: {
-        show: false,
-        timeout: 3000,
-        message: 'Unable to add empty task',
-      },
-    };
-  },
-  methods: {
-    doneTask(id) {
-      let task = this.tasks.find((task) => task.id === id);
-      task.done = !task.done;
-    },
-    deleteTask(id) {
-      this.tasks = this.tasks.filter((task) => task.id !== id);
-    },
-    editTask(id) {
-      let task = this.tasks.find((task) => task.id === id);
-      let newTitle = prompt('Enter new task title', task.title);
-      if (newTitle !== null) {
-        task.title = newTitle.trim();
-      }
-    },
-    addTask() {
-      if (this.newTaskTitle.trim() === '') {
-        this.snackbar.show = true;
-        return;
-      }
-      let newTask = {
-        id: Date.now(),
-        title: this.newTaskTitle,
-        done: false,
-      };
-      this.tasks.push(newTask);
-      this.newTaskTitle = '';
-    },
-    saveSnackbarState() {
-      localStorage.setItem('snackbarState', JSON.stringify(this.snackbar.show));
-    },
-    retrieveSnackbarState() {
-      const state = localStorage.getItem('snackbarState');
-      if (state !== null) {
-        this.snackbar.show = JSON.parse(state);
-      }
-    },
-  },
-  created() {
-    this.retrieveSnackbarState();
-  },
-};
+<script src="./ToDoView.js">
 </script>
