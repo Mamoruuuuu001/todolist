@@ -1,19 +1,6 @@
-# todolist
+# To Do List
+This To-Do List Application was created for the purpose of familiarizing Vue.js and Vuetify framework, using client-side storage to store the tasks.
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Features
+1. Add, edit, and delete tasks.
+2. Live date and time.
